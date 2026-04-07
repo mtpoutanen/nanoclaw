@@ -7,11 +7,14 @@ import {
   DEFAULT_TRIGGER,
   getTriggerPattern,
   GROUPS_DIR,
+  HTTP_API_PORT,
+  HTTP_API_TOKEN,
   IDLE_TIMEOUT,
   MAX_MESSAGES_PER_PROMPT,
   POLL_INTERVAL,
   TIMEZONE,
 } from './config.js';
+import { startHttpApi } from './http-api.js';
 import { startCredentialProxy } from './credential-proxy.js';
 import './channels/index.js';
 import {
@@ -724,6 +727,11 @@ async function main(): Promise<void> {
     },
   });
   startSessionCleanup();
+  if (HTTP_API_TOKEN) {
+    startHttpApi(HTTP_API_PORT, HTTP_API_TOKEN, channelOpts.onMessage, () => registeredGroups);
+  } else {
+    logger.info('HTTP API disabled (HTTP_API_TOKEN not set)');
+  }
   queue.setProcessMessagesFn(processGroupMessages);
   recoverPendingMessages();
   startMessageLoop().catch((err) => {

@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run:*)",
+      "Bash(npx vitest:*)",
+      "Bash(launchctl list:*)",
+      "Bash(echo \"PID: $!\")",
+      "Bash(./container/build.sh:*)",
+      "Bash(git add:*)",
+      "Bash(git merge:*)",
+      "Bash(npm install:*)",
+      "Bash(pkill -f \"tsx.*src/index\")",
+      "Bash(pkill -f \"ts-node.*index\")",
+      "Bash(node -e \"const {Bot} = require\\('grammy'\\); const b = new Bot\\('x'\\); console.log\\(b.start.toString\\(\\)\\)\")",
+      "Bash(sqlite3:*)",
+      "Bash(curl -s \"https://api.telegram.org/bot8781570261*/getUpdates?limit=5\")",
+      "Bash(python3 -m json.tool)",
+      "Bash(LOG_LEVEL=debug npm run dev)",
+      "Bash(curl:*)"
+    ]
+  }
+}
