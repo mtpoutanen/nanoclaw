@@ -728,7 +728,12 @@ async function main(): Promise<void> {
   });
   startSessionCleanup();
   if (HTTP_API_TOKEN) {
-    startHttpApi(HTTP_API_PORT, HTTP_API_TOKEN, channelOpts.onMessage, () => registeredGroups);
+    startHttpApi(
+      HTTP_API_PORT,
+      HTTP_API_TOKEN,
+      channelOpts.onMessage,
+      () => registeredGroups,
+    );
   } else {
     logger.info('HTTP API disabled (HTTP_API_TOKEN not set)');
   }

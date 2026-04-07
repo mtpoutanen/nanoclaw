@@ -57,10 +57,7 @@ export const CREDENTIAL_PROXY_PORT = parseInt(
   process.env.CREDENTIAL_PROXY_PORT || '3001',
   10,
 );
-export const HTTP_API_PORT = parseInt(
-  process.env.HTTP_API_PORT || '3002',
-  10,
-);
+export const HTTP_API_PORT = parseInt(process.env.HTTP_API_PORT || '3002', 10);
 export const HTTP_API_TOKEN =
   process.env.HTTP_API_TOKEN || envConfig.HTTP_API_TOKEN || '';
 export const MAX_MESSAGES_PER_PROMPT = Math.max(
